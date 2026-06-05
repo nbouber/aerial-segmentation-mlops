@@ -5,6 +5,7 @@ import torchmetrics
 
 from transformers import SegformerForSemanticSegmentation
 
+
 class AerialSegmentationModel(L.LightningModule):
     def __init__(
             self,
@@ -18,8 +19,8 @@ class AerialSegmentationModel(L.LightningModule):
 
         self.model = SegformerForSemanticSegmentation.from_pretrained(model_name, num_labels=num_classes, ignore_mismatched_sizes=True)
 
-        self.train_jaccard = torchmetrics.MulticlassJaccardIndex(num_classes=self.num_classes)
-        self.val_jaccard = torchmetrics.MulticlassJaccardIndex(num_classes=self.num_classes)
+        self.train_jaccard = torchmetrics.JaccardIndex(task="multiclass", num_classes=self.num_classes)
+        self.val_jaccard = torchmetrics.JaccardIndex(task="multiclass", num_classes=self.num_classes)
 
     def forward(self, inputs):
         logits = self.model(inputs).logits
