@@ -44,7 +44,7 @@ class PotsdamDataset(Dataset):
             matches = np.all(mask_np == rgb, axis=-1)
             result[matches] = class_idx
 
-        return img, torch.from_numpy(result)
+        return {"images": img, "masks": torch.from_numpy(result)}
 
 class AerialSegmentationDataModule(L.LightningDataModule):
     def __init__(
