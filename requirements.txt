@@ -5,3 +5,6 @@ transformers
 numpy
 Pillow
 torchmetrics
+hydra-core
+wandb
+hydra-colorlog

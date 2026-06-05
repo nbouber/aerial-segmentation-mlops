@@ -1,0 +1,6 @@
+defaults:
+  - training: default
+  - data: default
+  - model: default
+  - override hydra/job_logging: colorlog
+  - override hydra/hydra_logging: colorlog

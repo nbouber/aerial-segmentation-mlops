@@ -219,3 +219,7 @@ __marimo__/
 
 # Data
 data/
+
+# ML run artifacts
+outputs/
+wandb/
